@@ -15,9 +15,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
-export PATH="$HOME/.local/bin:$PATH"
-. "$HOME/.cargo/env"
+[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 # Kitty
 export KITTY_ENABLE_WAYLAND=1
